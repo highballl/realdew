@@ -45,7 +45,6 @@ export default {
   animation-name: fadeIn;
   animation-duration: 4s;
   animation-timing-function: ease-in-out;
-  animation-direction: alternate;
 }
 
 .title {
