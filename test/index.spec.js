@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import index from '@/pages/index.vue'
 // import NuxtLogo from '@/components/NuxtLogo.vue'
 
 // describe('NuxtLogo', () => {
