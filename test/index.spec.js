@@ -7,3 +7,5 @@
 //     expect(wrapper.vm).toBeTruthy()
 //   })
 // })
+
+describe('', () => {})
