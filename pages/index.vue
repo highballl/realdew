@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+    <<<<<<< HEAD
     <client-only>
       <particle-field />
     </client-only>
+    =======
+    <canvas id="canvas" class="canvas_background"></canvas>
+    >>>>>>> be27717 (2022/07/03/FRI feature: LNB & second page & scrollIntoView)
     <header class="header_main">
       <nav class="lnb_main">
         <ul class="lists_lnb">
@@ -22,6 +26,14 @@
           <p class="desc">Coming Soon</p>
         </div>
       </section>
+      <<<<<<< HEAD =======
+      <!-- <section id="1" class="wrap_particle_field">
+      <client-only>
+        <particle-field />
+      </client-only>
+    </section> -->
+      >>>>>>> be27717 (2022/07/03/FRI feature: LNB & second page &
+      scrollIntoView)
       <section id="second" class="wrap_index">
         <div class="area_title">
           <h1 class="title">second title</h1>
@@ -52,10 +64,17 @@ export default {
   beforeUnmount() {},
   methods: {
     init() {
+<<<<<<< HEAD
       // const canvas = document.getElementById('canvas')
       // const ctx = canvas.getContext('2d')
       // ctx.fillStyle = '#121212'
       // ctx.fillRect(0, 0, canvas.width, canvas.height)
+=======
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d')
+      ctx.fillStyle = '#121212'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+>>>>>>> be27717 (2022/07/03/FRI feature: LNB & second page & scrollIntoView)
 
       window.scrollTo(0, 0)
     },
