@@ -1,7 +1,5 @@
 <template>
-  <v-app>
-    <Nuxt />
-  </v-app>
+  <Nuxt />
 </template>
 
 <script>
@@ -15,7 +13,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrap_app {
-  background-color: #121212;
+  // background-color: #121212;
   width: 100%;
   height: 100%;
 }
