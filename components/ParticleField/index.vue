@@ -1,8 +1,8 @@
 <template><canvas id="canvas" class="canvas_background"></canvas></template>
 
 <script>
-// import * as THREE from 'three'
-const THREE = require('THREE')
+import * as THREE from 'THREE'
+// const THREE = require('THREE')
 
 export default {
   name: 'ParticleField',
