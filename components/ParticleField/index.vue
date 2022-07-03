@@ -1,7 +1,7 @@
 <template><canvas id="canvas" class="canvas_background"></canvas></template>
 
 <script>
-import * as THREE from 'THREE'
+import * as THREE from '@/node_modules/three/build/three.module.js'
 // const THREE = require('THREE')
 
 export default {
