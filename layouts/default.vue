@@ -11,10 +11,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.wrap_app {
-  // background-color: #121212;
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style lang="scss" scoped></style>
