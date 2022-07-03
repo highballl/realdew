@@ -1,26 +1,37 @@
 <template>
   <div id="app">
     <canvas id="canvas" class="canvas_background"></canvas>
-    <header class="header">
-      <nav class="nav_header">
-        <ul class="lists_nav">
-          <a href="#0"><li class="item_nav"></li></a>
-          <a href="#1"><li class="item_nav"></li></a>
+    <header class="header_main">
+      <nav class="lnb_main">
+        <ul class="lists_lnb">
+          <li
+            v-for="anchor in anchors"
+            :key="anchor.index"
+            class="item_lnb"
+            @click.prevent="lnbClick(anchor)"
+          />
         </ul>
       </nav>
     </header>
-    <section id="0" class="wrap_index">
-      <div class="area_title">
-        <h1 class="title">Project realdew</h1>
-        <p class="desc">Coming Soon</p>
-      </div>
-    </section>
-    <!-- <section id="1" class="wrap_particle_field">
+    <main class="contents_main">
+      <section id="index" class="wrap_index">
+        <div class="area_title">
+          <h1 class="title">Project realdew</h1>
+          <p class="desc">Coming Soon</p>
+        </div>
+      </section>
+      <!-- <section id="1" class="wrap_particle_field">
       <client-only>
         <particle-field />
       </client-only>
-    </section>
-    <section id="2"></section> -->
+    </section> -->
+      <section id="second" class="wrap_index">
+        <div class="area_title">
+          <h1 class="title">second title</h1>
+          <p class="desc">second page</p>
+        </div>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -33,11 +44,28 @@ export default {
   // components: {
   //   ParticleField,
   // },
+  data() {
+    return {
+      anchors: [{ location: 'index' }, { location: 'second' }],
+    }
+  },
   mounted() {
-    const canvas = document.getElementById('canvas')
-    const ctx = canvas.getContext('2d')
-    ctx.fillStyle = '#121212'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    this.init()
+  },
+  beforeUnmount() {},
+  methods: {
+    init() {
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d')
+      ctx.fillStyle = '#121212'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      window.scrollTo(0, 0)
+    },
+    lnbClick(anchor) {
+      const target = document.getElementById(anchor.location)
+      target.scrollIntoView({ behavior: 'smooth' })
+    },
   },
 }
 </script>
@@ -53,16 +81,10 @@ export default {
 }
 
 #app {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-}
-
-.wrap_index {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  position: fixed;
 }
 
 .canvas_background {
@@ -71,9 +93,8 @@ export default {
   margin: 0;
   width: 100%;
   height: 100%;
-  // background-color: #121212;
 }
-.header {
+.header_main {
   position: absolute;
   z-index: 999;
   height: 100%;
@@ -85,39 +106,56 @@ export default {
   width: 30px;
 }
 
-.nav_header {
-  position: relative;
+.lnb_main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 
-.lists_nav {
-  position: relative;
+.lists_lnb {
+  width: 100%;
+  height: fit-content;
   margin: 0;
   padding: 0;
-  width: 100%;
-  text-align: center;
-  list-style: none;
-  a {
-    text-decoration: none;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
-.item_nav {
-  ::before {
+.item_lnb {
+  &::before {
     content: '';
-    position: absolute;
     display: inline-block;
-    width: 4px;
-    height: 4px;
-    border-radius: 20px;
-    border-color: white;
-    // padding-left: 0px;
+    vertical-align: text-bottom;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #fe9aec, #33ccff);
+    animation-name: fadeIn;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    cursor: pointer;
   }
 }
-.wrap_title {
+
+.contents_main {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.wrap_index {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.area_title {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -126,7 +164,6 @@ export default {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: transparent;
 }
 
 .area_title {
