@@ -162,7 +162,7 @@ export default {
         const randomGreen = Math.floor(Math.random() * (125 - 100) + 100)
         particlesMaterial.color.set(`rgb(0, ${randomBlue}, ${randomGreen})`)
 
-        console.log('isMobile?', this.$device.isMobie)
+        // console.log('isMobile?', this.$device.isMobie)
 
         // if (mouseX > -1) {
         if (mouseX === 0) {
