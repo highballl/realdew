@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <canvas id="canvas" class="canvas_background"></canvas>
+    <client-only>
+      <particle-field />
+    </client-only>
     <header class="header_main">
       <nav class="lnb_main">
         <ul class="lists_lnb">
@@ -20,11 +22,6 @@
           <p class="desc">Coming Soon</p>
         </div>
       </section>
-      <!-- <section id="1" class="wrap_particle_field">
-      <client-only>
-        <particle-field />
-      </client-only>
-    </section> -->
       <section id="second" class="wrap_index">
         <div class="area_title">
           <h1 class="title">second title</h1>
@@ -55,10 +52,10 @@ export default {
   beforeUnmount() {},
   methods: {
     init() {
-      const canvas = document.getElementById('canvas')
-      const ctx = canvas.getContext('2d')
-      ctx.fillStyle = '#121212'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      // const canvas = document.getElementById('canvas')
+      // const ctx = canvas.getContext('2d')
+      // ctx.fillStyle = '#121212'
+      // ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       window.scrollTo(0, 0)
     },
@@ -88,7 +85,7 @@ export default {
 }
 
 .canvas_background {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   margin: 0;
   width: 100%;
@@ -134,7 +131,8 @@ export default {
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background: linear-gradient(to right, #fe9aec, #33ccff);
+    // background: linear-gradient(to right, #fe9aec, #33ccff);
+    background: linear-gradient(to bottom, #00ccff, #33ffcc);
     animation-name: fadeIn;
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
@@ -173,7 +171,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #fe9aec, #33ccff);
+  // background: linear-gradient(to right, #fe9aec, #33ccff);
+  background: linear-gradient(to right, #33ffcc, #33c4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation-name: fadeIn;
