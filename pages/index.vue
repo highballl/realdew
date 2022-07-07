@@ -16,13 +16,13 @@
       </nav>
     </header>
     <main class="contents_main">
-      <section id="index" class="wrap_index">
+      <section id="index" class="wrap_section">
         <div class="area_title">
           <h1 class="title">Project realdew</h1>
           <p class="desc">Coming Soon</p>
         </div>
       </section>
-      <section id="second" class="wrap_index">
+      <section id="second" class="wrap_section">
         <div class="area_title">
           <h1 class="title">second title</h1>
           <p class="desc">second page</p>
@@ -81,7 +81,10 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: -webkit-fill-available;
   position: fixed;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 .canvas_background {
@@ -143,15 +146,22 @@ export default {
 .contents_main {
   position: relative;
   height: 100%;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  /* 스크롤바 없애기 */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.wrap_index {
+.contents_main::-webkit-scrollbar {
+  /* 스크롤바 없애기 */
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.wrap_section {
   position: relative;
   width: 100%;
   height: 100%;
   background-color: transparent;
+  scroll-snap-align: start;
 }
 .area_title {
   display: flex;
