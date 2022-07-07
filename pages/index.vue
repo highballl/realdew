@@ -85,6 +85,7 @@ export default {
   position: fixed;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  font-family: 'Roboto';
 }
 
 .canvas_background {
@@ -192,6 +193,10 @@ export default {
   .title {
     font-size: 40px;
     font-weight: 900;
+
+    @media (max-width: 640px) {
+      font-size: 30px;
+    }
   }
 
   .desc {
